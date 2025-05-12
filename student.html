@@ -1,0 +1,48 @@
+<!-- student.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Panel - Room Rental</title>
+  <link rel="stylesheet" href="css/student.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+  <div class="student-container">
+    <h1>Find Your Perfect Room</h1>
+    
+    <div class="search-filters">
+      <select id="roomTypeFilter">
+        <option value="">Any Type</option>
+        <option value="single">Single Room</option>
+        <option value="shared">Shared Room</option>
+      </select>
+      
+      <select id="bathroomFilter">
+        <option value="">Any Bathroom</option>
+        <option value="attached">Attached Bathroom</option>
+        <option value="separate">Separate Bathroom</option>
+      </select>
+      
+      <input type="number" id="maxPrice" placeholder="Max Price">
+      <button id="searchBtn">Search</button>
+    </div>
+    
+    <div class="results-container">
+      <div id="roomsList" class="rooms-list"></div>
+      <div id="mapContainer" class="map-container">
+        <div id="map"></div>
+      </div>
+    </div>
+    
+    <div class="support-section">
+      <h2>Need Help?</h2>
+      <textarea id="studentIssue" placeholder="Describe your issue"></textarea>
+      <button id="submitStudentIssue">Submit Issue</button>
+    </div>
+  </div>
+  
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/student.js"></script>
+</body>
+</html>

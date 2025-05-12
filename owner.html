@@ -1,0 +1,86 @@
+<!-- owner.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Owner Panel - Room Rental</title>
+  <link rel="stylesheet" href="css/owner.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+  <div class="owner-container">
+    <h1>Owner Dashboard</h1>
+    
+    <div class="owner-sections">
+      <section id="addRoomSection">
+        <h2>Add New Room</h2>
+        <form id="roomForm">
+          <select id="roomType" required>
+            <option value="">Select Room Type</option>
+            <option value="single">Single Room</option>
+            <option value="shared">Shared Room</option>
+          </select>
+          
+          <select id="bathroomType" required>
+            <option value="">Select Bathroom Type</option>
+            <option value="attached">Attached Bathroom</option>
+            <option value="separate">Separate Bathroom</option>
+          </select>
+          
+          <input type="number" id="roomPrice" placeholder="Monthly Rent" required>
+          <textarea id="roomDescription" placeholder="Room Description"></textarea>
+          
+          <div id="map" style="height: 300px;"></div>
+          <button type="button" id="locateMe">Mark Current Location</button>
+          
+          <input type="file" id="roomPhotos" multiple accept="image/*">
+          <div id="imagePreview"></div>
+          
+          <button type="submit">Add Room</button>
+        </form>
+      </section>
+      
+      <section id="myRoomsSection">
+        <h2>My Rooms</h2>
+        <div id="roomsList"></div>
+      </section>
+      
+      <section id="transactionsSection">
+        <h2>Transactions & Commission</h2>
+        <div id="transactionsList"></div>
+      </section>
+      
+      <section id="supportSection">
+        <h2>Support</h2>
+        <textarea id="issueMessage" placeholder="Describe your issue"></textarea>
+        <button id="submitIssue">Submit Issue</button>
+      </section>
+    </div>
+  </div>
+  
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/owner.js"></script>
+  <!-- Commission System Section -->
+<section style="background: #f5f5f5; padding: 20px; margin-top: 20px; border-radius: 10px;">
+  <h2>💵 Rent Payment & Commission</h2>
+  
+  <!-- Step 1: Owner rent log karega -->
+  <div style="margin-bottom: 20px;">
+    <h3>Log Rent Payment</h3>
+    <select id="rentedRoomsList" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+      <option value="">-- Select Rented Room --</option>
+    </select>
+    <input type="number" id="rentAmount" placeholder="Amount Received (₹)" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+    <button id="logRentBtn" style="background: #4CAF50; color: white; border: none; padding: 10px; border-radius: 5px;">Submit Payment</button>
+  </div>
+
+  <!-- Step 2: Pending commissions dikhenge -->
+  <div>
+    <h3>Pending Commissions</h3>
+    <div id="commissionList" style="margin: 10px 0;"></div>
+    <p id="totalDue" style="font-weight: bold;">Total Due: ₹0</p>
+    <button id="payCommissionBtn" style="background: #2196F3; color: white; border: none; padding: 10px; border-radius: 5px;">I Paid Commission</button>
+  </div>
+</section>
+</body>
+</html>

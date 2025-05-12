@@ -1,0 +1,39 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel - Room Rental</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-container">
+    <h1>Admin Dashboard</h1>
+    
+    <div class="admin-controls">
+      <h2>Commission System</h2>
+      <label class="switch">
+        <input type="checkbox" id="commissionToggle">
+        <span class="slider round"></span>
+      </label>
+      <p>Commission System: <span id="commissionStatus">Disabled</span></p>
+      
+      <h2>Pending Commissions</h2>
+      <div id="pendingCommissions"></div>
+      
+      <h2>Reported Issues</h2>
+      <div id="reportedIssues"></div>
+    </div>
+  </div>
+  
+  <script src="js/firebase-config.js"></script>
+  <script src="js/admin.js"></script>
+  <div style="background: #f0f0f0; padding: 15px; margin: 20px 0; border-radius: 8px;">
+    <h3>Commission System</h3>
+    <label style="display: flex; align-items: center; gap: 10px;">
+      <input type="checkbox" id="commissionToggle">
+      <span>Enable 5% Commission</span>
+    </label>
+    <p>Status: <strong id="commissionStatus">INACTIVE</strong></p>
+  </div>
+</body>
+</html>
